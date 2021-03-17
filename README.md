@@ -13,8 +13,13 @@ The user can add tasks in each of this categories.
 
 ## Dark-mode
 
-The app has light/dark mode implemented. To achieve this, the local storage is used.
+The app has light/dark mode implemented. To achieve this, the local storage was used.
 
+## Tech-stack:
+* HTML
+* CSS
+* Python
+* JavaScript
 
 ## Database
 
