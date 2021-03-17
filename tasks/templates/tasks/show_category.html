@@ -1,0 +1,81 @@
+{% extends "tasks/base.html" %}
+
+{% load static %}
+
+    {% block secondscreen %}
+        <!-- SECOND SCREEN -->
+        <div id="second" class="container">
+            <div class="top">
+                <div class="navbar">
+                    <a href="{% url 'category_list' %}"><i class="fal fa-chevron-left"></i></a>
+
+                    <div class="right">
+                        <div id="toggle">
+                            <img src="{% static 'tasks/icons/sun.png' %}" style="width: 20px;">
+                            <label class="switch" for="checkbox">
+                                <input type="checkbox" id="checkbox" />
+                                <div class="slider round"></div>
+                            </label>
+                        </div>
+                        <i class="far fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="text">
+                    <div class="icon-circle">
+                        <div class="icon">
+                            {% with 'tasks/icons/'|add:img|add:'.png' as image_static %}
+                                <img class="replaceIcon" src="{% static image_static %}">
+                            {% endwith %}
+                        </div>
+                    </div>
+                    <div class="replace-description">
+                        <h3>{{ category_name }}</h3>
+                        <p>{{ tasks_number }} Tasks</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                
+                <div class="bottom-line"></div>
+
+                <a href="{% url 'create_task' category_name %}" class="add">
+                    <i class="fal fa-plus"></i>
+                </a>
+
+                <div class="scroll-container">
+                    <!-- Note -->
+                    {% for task, created in data %}
+                        <div class="note">
+                            <div class="text" style="display: flex; align-items: center;">
+                                
+                                {% if task.complete == True %}
+                                    <img src="{% static 'tasks/icons/completed.png' %}" alt="Completed task">
+                                {% else %}
+                                    <img src="{% static 'tasks/icons/inprogress.png' %}" alt="In progress task">
+                                {% endif %} 
+
+                                <div class="description">
+                                    {% if task.complete == True %}
+                                        <del>{{ task }}</del>
+                                    {% else %}
+                                        <h4>{{ task }}</h4>
+                                    {% endif %} 
+                                    <p>{{created|date:"M - d - Y,  h:m"}}</p>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <a class="delete" href="{% url 'delete_task' category_name task.id %}"><i class="fal fa-trash-alt"></i></a>
+                                <a class="update" href="{% url 'update' category_name task.id %}"><i class="fal fa-marker"></i></a>
+                            </div>
+                        </div>
+                    {% endfor %} 
+                    <!-- Note -->
+                </div>
+
+            </div>
+
+        </div>
+        <!-- SECOND SCREEN -->
+    {% endblock %}
+
+    

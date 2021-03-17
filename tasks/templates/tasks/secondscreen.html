@@ -1,0 +1,48 @@
+{% extends "tasks/index.html" %}
+
+{% block secondscreen %}
+    <!-- SECOND SCREEN -->
+    <div id="second" class="container" style="display: none;">
+        <div class="top">
+            <div class="navbar">
+                <i class="fal fa-chevron-left"></i>
+                <i class="far fa-ellipsis-v"></i>
+            </div>
+            <div class="text">
+                <div class="icon-circle">
+                    <div class="icon">
+                        <img class="replaceIcon" src="{% static 'tasks/icons/all.png ' %}" alt="">
+                    </div>
+                </div>
+                <div class="replace-description">
+                    <div id="toggle">Go Dark</div>
+                    <h3>All</h3>
+                    <p>32 Tasks</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            
+            <div class="bottom-line"></div>
+            <a href="#" class="add">
+                <i class="fal fa-plus"></i>
+            </a>
+
+            <div class="scroll-container">
+                <!-- Note -->
+                {% for task in tasks %}
+                    <div class="note">
+                        <div class="text">
+                            <h4>{{ task}}</h4>
+                            <p>16:00</p>
+                        </div>
+                        <input type="checkbox">
+                    </div>
+                {% endfor %} 
+                <!-- Note -->
+            </div>
+
+        </div>
+    </div>
+    <!-- SECOND SCREEN -->
+{% endblock %}

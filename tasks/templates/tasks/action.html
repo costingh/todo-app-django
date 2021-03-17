@@ -1,0 +1,72 @@
+{% extends "tasks/base.html" %}
+
+{% load static %}
+
+{% block action %}
+    <div class="action-container">
+
+        <!-- Top -->
+        <div class="top-bar">
+            {% block create_text %}
+            {% endblock %}
+
+            {% block update_text %}
+            {% endblock %}
+
+            {% block delete_text %}
+            {% endblock %}
+            
+            <div class="right">
+                <div id="toggle">
+                    <label class="switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+                
+                {% block prev_create_link %}
+                {% endblock %}
+
+                {% block prev_update_link %}
+                {% endblock %}
+
+                {% block prev_delete_link %}
+                {% endblock %}
+
+
+            </div>
+        </div>
+        <!-- Top -->
+
+
+        <!-- Image -->
+        <div class="image-container">
+            {% block create_task_image %}
+            {% endblock %}
+            
+            {% block update_task_image %}
+            {% endblock %}
+
+            {% block delete_task_image %}
+            {% endblock %}
+
+        </div>
+        <!-- Image -->
+        
+
+        <!-- Content -->
+        <div class="content">
+            {% block create_task %}
+            {% endblock %}
+
+            {% block delete_task %}
+            {% endblock %}
+
+            {% block update_task %}
+            {% endblock %}
+        </div>
+        <!-- Content -->
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "tasks/action.html" %}
+
+{% load static %}
+
+{% block update_task %}
+    <h3>Modify task</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.title }}
+        <div class="flex-input">
+            <label for="id_complete">Task completed?  </label>
+            {{ form.complete }}
+        </div>
+        <p class="muted">Press Modify to update the task details, or Cancel to navigate to the previous page.</p>
+        <div class="buttons">
+            <input type="submit" name="Modify">
+            <a href="{% url 'show_category' page %}">Cancel</a>
+        </div>
+    </form>
+{% endblock %}
+
+
+{% block update_task_image %}
+    <img src="{% static 'tasks/icons/update_task.svg' %}">
+{% endblock %}
+
+{% block prev_update_link %}
+	<a href="{% url 'show_category' page %}"><i class="fal fa-times" style="color: var(--text-color);"></i></a>
+{% endblock %}
+
+{% block update_text %}
+	<p>Update</p>
+{% endblock %}
+

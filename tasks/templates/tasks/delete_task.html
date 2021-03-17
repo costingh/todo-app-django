@@ -1,0 +1,29 @@
+{% extends "tasks/action.html" %}
+
+{% load static %}
+
+{% block delete_task %}
+	<h3>You are about to <span style="color: rgb(194, 33, 33);">delete</span> the following item:</h3>
+	<p>Task named '{{ task }}' from category '{{ task.category }}'.</p>
+	<form method="POST" action="">
+		{% csrf_token %}
+		<p class="muted">Press Yes to continue, or Cancel to navigate to the previous page.</p>
+		<div class="buttons">
+			<input type="submit" name="Proceed">
+			<a href="{% url 'show_category' page %}">Cancel</a>
+		</div>
+	</form>
+{% endblock %}
+
+
+{% block delete_task_image %}
+	<img src="{% static 'tasks/icons/delete.svg' %}">
+{% endblock %}
+
+{% block prev_delete_link %}
+	<a href="{% url 'show_category' page %}"><i class="fal fa-times"></i></a>
+{% endblock %}
+
+{% block delete_text %}
+	<p>Confirm</p>
+{% endblock %}

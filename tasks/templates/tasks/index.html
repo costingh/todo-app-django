@@ -1,0 +1,64 @@
+ {% extends "tasks/base.html" %}
+ 
+ {% load static %}
+
+    {% block firstscreen %}
+        <!-- FIRST SCREEN -->
+        <div id="first" class="container">
+                
+            <!-- Header -->
+            <div class="header-inner">
+                <h1>Lists</h1>
+
+                <div id="toggle">
+                    <img src="{% static 'tasks/icons/sun.png' %}" style="width: 20px;">
+                    <label class="switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- List items wrapper -->
+            <div class="inner-content">
+            
+                <!-- Row -->
+                <div class="row">
+
+                    {% for category, numbers in data %}
+                        <a href="{% url 'show_category' category %}" class="list">
+                            <div class="icon">
+
+                                {% with 'tasks/icons/'|add:category|add:'.png' as image_static %}
+                                    <img class="category-icon" src="{% static image_static %}" >
+                                {% endwith %}
+
+                            </div>
+                            <div class="main-description">
+                                <h3>{{category}}</h3>
+
+                                {% if category == 'All' %}
+                                    <p>{{ total }} tasks</p>
+                                {% else %}
+                                    <p>{{numbers}} tasks</p>
+                                {% endif %}
+
+                            </div>
+                        </a> 
+                    {% endfor %}
+
+                </div>
+                <!-- Row -->
+
+            </div>
+            <!-- List item wrapper -->
+
+            
+            <!-- Bottom line -->
+            <div class="bottom-line"></div>
+            <!-- Bottom line -->
+
+
+        </div>
+        <!-- FIRST SCREEN -->
+    {% endblock %}

@@ -1,0 +1,30 @@
+{% extends "tasks/action.html" %}
+
+{% load static %}
+
+{% block create_task %}
+    <h3><span style="color: var(--top-cont-color);">Add</span> new task in {{ task }} category</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="id_title">Task name</label>
+        {{ form.title }}
+        <p class="muted">Press Add to add the task in the current list, or Cancel to navigate to the previous page.</p>
+        <div class="buttons">
+            <input type="submit" name="Add">
+            <a href="{% url 'show_category' page %}">Cancel</a>
+        </div>
+    </form>
+{% endblock %}
+
+
+{% block create_task_image %}
+    <img src="{% static 'tasks/icons/add_task.svg' %}">
+{% endblock %}
+
+{% block prev_create_link %}
+	<a href="{% url 'show_category' page %}"><i class="fal fa-times"></i></a>
+{% endblock %}
+
+{% block create_text %}
+	<p>Add</p>
+{% endblock %}

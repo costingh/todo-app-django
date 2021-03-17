@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'tasks/fontawesome/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'tasks/fontawesome/css/regular.css' %}">
+    <link rel="stylesheet" href="{% static 'tasks/fontawesome/css/solid.css' %}">
+    <link rel="stylesheet" href="{% static 'tasks/fontawesome/css/brands.css' %}">
+    <link rel="stylesheet" href="{% static 'tasks/fontawesome/css/light.css' %}">
+
+    <link rel="stylesheet" href="{% static 'tasks/css/style.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <title>ToDo App</title>
+    
+</head>
+<body> 
+    {% block firstscreen %}
+    {% endblock %}
+
+    {% block secondscreen %}
+    {% endblock %}
+
+    {% block action %}
+    {% endblock %}
+    <script src="{% static 'tasks/script/main.js' %}"></script>
+</body>
+</html>
