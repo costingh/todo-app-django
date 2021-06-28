@@ -23,7 +23,7 @@ The app has light/dark mode implemented. To achieve this, the local storage was 
 
 ## Database
 
-As database, the default PostgreSQL one is used.
+As database, sqlite one is used.
 
 ### Setup
 To get this repository, run the following command inside your git enabled terminal
